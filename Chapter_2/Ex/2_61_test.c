@@ -16,9 +16,22 @@ static void test_funcB(void **state)
 }
 static void test_funcC(void **state)
 {
+	assert_int_equal(func_C(100), 1);
+	assert_int_equal(func_C(-100), 1);
+	assert_int_equal(func_C(-768), 0);
+	assert_int_equal(func_C(-768), 0);
+	assert_int_equal(func_C(256), 0);
+	assert_int_equal(func_A(0), 0);
 }
 static void test_funcD(void **state)
 {
+	assert_int_equal(func_D(100), 1);
+	assert_int_equal(func_D(-100), 1);
+	assert_int_equal(func_D(~0), 0);
+	assert_int_equal(func_D(20971520), 1);
+	assert_int_equal(func_D(256), 1);
+	assert_int_equal(func_D(255), 0);
+	assert_int_equal(func_D(254), 1);
 }
 int main(void)
 {
